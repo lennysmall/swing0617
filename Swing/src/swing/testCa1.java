@@ -59,7 +59,7 @@ public class testCa1 extends JFrame
 		 * 하단 클리어 버튼 및 만든이 View
 		 */
 		JPanel infoView = new JPanel(new BorderLayout(2, 4));
-
+		//4개인 이유찾기
 		JButton clear = new JButton("Clear"); // 입력 창을 클리어 시킬 버튼을 생성.
 		infoView.add(clear, BorderLayout.NORTH);
 
