@@ -13,38 +13,38 @@ import javax.swing.SwingConstants;
 public class SampleText implements ActionListener{
 	JTextField id;
 	JPasswordField passwd;
-	
+
 	public void createGUI(){
 		JFrame frm = new JFrame("Sample Text");
 		frm.setBounds(200, 200, 300, 150);
 		//그리드레이아웃은 세로세로 크기지정
 		frm.setLayout(new GridLayout(2,2));
-		
+
 		JLabel labelId = new JLabel("ID", SwingConstants.RIGHT);
 		JLabel labelPassword = new JLabel("Password", SwingConstants.RIGHT);
-		
+
 		id = new JTextField(10);
-				passwd = new JPasswordField(10);
+		passwd = new JPasswordField(10);
 		//에코캐릭터를 *로 바꾸면 *로 나옴. 문자지정 변경 가능
 		passwd.setEchoChar('@');
-		
+
 		//액션리스너는 마우스와 엔터키 다 동작
 		id.addActionListener(this);
 		passwd.addActionListener(this);
-		
+
 		frm.add(labelId);
 		frm.add(id);
 		frm.add(labelPassword);
 		frm.add(passwd);
-		
+
 		frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frm.setVisible(true);
-		
-		
+
+
 	}
-	
-	
-	
+
+
+
 	public static void main(String[] args) {
 		new SampleText().createGUI();
 
@@ -54,6 +54,12 @@ public class SampleText implements ActionListener{
 	//액션리스너 구성
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		//전공자를 위한 확인 출력
+		//아래출력은 main에 넣으면 콘솔에 main이 출력
+		//쓰레드를 이용한 현재 출력위치 확인
+		System.out.println(Thread.currentThread().getName());
+
+
 		Object obj = e.getSource();
 		if(obj instanceof JPasswordField){
 			System.out.println("ID : "+id.getText());
@@ -65,13 +71,13 @@ public class SampleText implements ActionListener{
 			System.out.println("id");
 			passwd.requestFocus();
 		}
-		
-		
-		
-		
+
+
+
+
 		//패스워드는 캐릭터로 들어가기때문에 스트링으로 변환해야함
-		
-		
+
+
 	}
 
 }
